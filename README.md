@@ -1,36 +1,41 @@
-# WorldLayer.si
+# WorldLayer.si — The procedural atlas
 
-A cinematic domain-for-sale landing page with a custom animated, interactive 3D globe. Written entirely in HTML, CSS, and JavaScript. No npm packages, installation, build step, external fonts, analytics, or CDN scripts.
+An interactive exhibition of places that do not exist. Visitors can generate a terrain, switch between Alpine, Dune and Lunar biomes, orbit the landscape, separate its geological layers, and save a postcard. The domain is available for acquisition through a small inquiry link.
 
-## Local preview
+The site is buildless HTML, CSS and JavaScript. There are no npm dependencies, external scripts, analytics, or remote scene assets. Licensed copies of Space Grotesk and IBM Plex Mono are self-hosted; their OFL licenses are included in `public/fonts`.
 
-Run `python3 preview.py`, then open http://127.0.0.1:4312. Python is needed only for local preview. `preview.py` serves the `public` directory and applies the same security headers as Vercel.
+## Preview
 
-## Deploy to Vercel
+Run `python3 preview.py`, then open **http://127.0.0.1:4312**. The server exposes only `public` and applies the security headers in `vercel.json`.
 
-1. Push this folder to its own Git repository and import that repository into Vercel.
-2. Select **Other** as the framework preset. The included `vercel.json` sets an empty build command, an empty install command, and `public` as the output directory.
-3. Deploy, then add `worldlayer.si` in the project's domain settings and apply the DNS records Vercel provides at your registrar. Vercel will show the records appropriate to your domain setup.
-4. Verify the deployed inquiry flow with your preferred email client.
+## Interaction
 
-Vercel documentation: [static project configuration](https://vercel.com/docs/project-configuration/vercel-json), [static builds](https://vercel.com/docs/builds), and [adding a domain](https://vercel.com/docs/domains/working-with-domains/add-a-domain).
+- Drag the landscape to orbit; scroll over it to zoom.
+- Use the biome buttons or press **1**, **2**, or **3**.
+- Choose **Make another world** or press **N** to generate another seed.
+- The layer slider separates the three geological plates.
+- With the landscape focused, the arrow keys rotate the camera and **Home** resets it.
+- The camera control downloads a PNG postcard. The pause control stops ambient rotation and float.
+- **Field notes** explains the experiment and controls.
 
-The project deploys only files in `public`. Local tools, configuration files, and this README are not public site assets. Hosting and DNS have not been configured by this repository.
+The seeded terrain uses a native WebGL heightfield, fractal and ridged noise, custom lighting, elevation contours, and a smooth geometry transition between worlds. Geometry is calculated in the vertex shader. If WebGL is unavailable, a 2D generated landscape replaces it. Terrain and names are imaginary; this is not geographic data.
 
-## Contact and content
+Motion respects `prefers-reduced-motion`, pauses when the canvas is offscreen or the page is hidden, and can be paused manually. Keyboard controls, semantic landmarks, focus indicators and native modal dialogs are included.
 
-The public contact address is `batcontact.help@gmail.com`, configured in `public/config.js`. It is intentionally visible to visitors. This static site cannot read Vercel environment variables at runtime, so edit this file to change the public email. Never put secrets in it.
+## Contact
 
-The acquisition modal prepares an email draft addressed to the owner. Visitors send it using their own email app, or use the Gmail / copy-inquiry fallback. The site does not send emails, save inquiries, charge visitors, or complete a domain transfer. If clipboard access is unavailable, the copy button downloads the inquiry as a text file.
+The public contact address is `batcontact.help@gmail.com`, configured in `public/config.js`. Never put credentials in this file.
 
-Copy and SEO metadata live in `public/index.html`. Colors and responsive layouts live in `public/styles.css`. The native Canvas 3D renderer is in `public/scene.js`. There is no fixed asking price; the offer field is optional.
+The inquiry form prepares a reviewable draft locally, then offers an email-app link, Gmail, and copy/download options. The website does not send or store inquiries, take payments, or transfer domains.
 
-## Motion and accessibility
+## Files
 
-The animation pauses when it is offscreen or the tab is hidden. It is capped at 30 frames per second, respects `prefers-reduced-motion`, and has a visible pause/play control. The page includes semantic landmarks, keyboard focus styles, a skip link, labeled form fields, and a native focus-trapping dialog. All main content remains readable without JavaScript, with a direct email link in the footer.
+- `public/index.html`: exhibition layout, metadata, field notes and inquiry dialog.
+- `public/styles.css`: responsive editorial layout and typography.
+- `public/scene.js`: procedural terrain, native WebGL renderer, gestures and postcard export.
+- `public/site.js`: world controls, keyboard shortcuts and inquiry drafting.
+- `vercel.json`: static output and security headers.
 
-## Globe data
+## Deployment
 
-The globe uses sampled land points and coastlines from Natural Earth’s 1:110m land dataset, stored locally in `public/globe-data.js`. No geographic API is called at runtime. Natural Earth map data is [public domain](https://www.naturalearthdata.com/about/terms-of-use/). Source: [Natural Earth vector repository](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson).
-
-Visitors can drag the globe horizontally or use the labeled left/right rotation buttons. Vertical touch scrolling remains available.
+The existing Vercel configuration serves `public` without an install or build step. Push to your repository and deploy through its configured Vercel project when ready.

@@ -3,71 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080d13">
-  <meta name="description" content="WorldLayer.si — a distinctive domain for a world of possibility. Your next platform, experience, or big idea starts here. Available to acquire.">
+  <meta name="theme-color" content="#131c17">
+  <meta name="description" content="A little world you can take apart. Generate strange terrain, peel back its layers, and find a new perspective. An interactive experiment at WorldLayer.si. Domain available for acquisition.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="WorldLayer.si — A world of possibility.">
-  <meta property="og:description" content="One world. Infinite layers. Make WorldLayer.si the home of your next big idea. Available to acquire.">
+  <meta property="og:title" content="WorldLayer — A little world of your own.">
+  <meta property="og:description" content="An interactive atlas of places that don't exist. Make a world. Take it apart. Start again.">
   <meta property="og:url" content="https://worldlayer.si/">
   <meta property="og:image" content="https://worldlayer.si/social-card.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://worldlayer.si/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" href="/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/ibm-plex-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
   <script defer src="/config.js"></script>
-  <script defer src="/globe-data.js"></script>
   <script defer src="/scene.js"></script>
   <script defer src="/site.js"></script>
-  <title>WorldLayer.si — A world of possibility.</title>
+  <title>WorldLayer — A little world of your own.</title>
 </head>
-<body class="theme-world">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a href="#" class="brand" aria-label="WorldLayer home"><svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><ellipse cx="16" cy="16" rx="5" ry="12"/><path d="M4 16h24M7 9h18M7 23h18"/></svg><span>worldlayer<span class="brand-tld">.si</span></span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#the-name">The name</a><a href="#possibilities">The possibilities</a></nav>
-    <button class="header-cta" data-inquire>Let’s talk <span aria-hidden="true">↗</span></button>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
-  </header>
-  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#the-name">The name <span>01</span></a><a href="#possibilities">The possibilities <span>02</span></a><button data-inquire>Make it yours <span>↗</span></button></nav>
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-background" aria-hidden="true"></div>
-      <div class="hero-content">
-        <div class="availability"><span class="status-light" aria-hidden="true"></span> A world of potential. Available to own.</div>
-        <h1 id="hero-title">A world of<br><em>possibility.</em></h1>
-        <p class="hero-description">Every great idea adds something to the world.<br>This is where your next layer begins.</p>
-        <div class="hero-actions"><button class="button button-primary" data-inquire>Make it yours <span aria-hidden="true">↗</span></button><a class="text-link" href="#the-name">Explore the potential <span aria-hidden="true">↓</span></a></div>
-        <div class="hero-domain"><span class="micro-label">YOUR NEXT COORDINATE</span><span>worldlayer.si <span class="small-dot" aria-hidden="true"></span></span></div>
+<body>
+  <a class="skip-link" href="#world-controls">Skip to world controls</a>
+  <div class="atlas-app">
+    <header class="masthead">
+      <a class="wordmark" href="/" aria-label="WorldLayer home"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="m18 3 15 8-15 8L3 11Z"/><path d="m3 18 15 8 15-8M3 25l15 8 15-8"/></svg>worldlayer<span class="wordmark-tld">.si</span></a>
+      <span class="masthead-note">AN ATLAS OF PLACES<br>THAT DON’T EXIST.</span>
+      <button class="sale-link" data-inquire><span class="status-dot" aria-hidden="true"></span> This domain is for sale <span aria-hidden="true">↗</span></button>
+    </header>
+
+    <main id="main" class="atlas-main">
+      <div class="canvas-shell" id="scene-wrap">
+        <div class="scene-grid" aria-hidden="true"></div>
+        <div class="scene-halo" aria-hidden="true"></div>
+        <canvas id="scene" tabindex="0" role="img" aria-label="An interactive imaginary mountain terrain floating in three geological layers. Drag to orbit. Use the arrow keys while focused to rotate, or Home to reset the view.">An imaginary floating landscape. Use the controls to generate a new world.</canvas>
+        <div class="scene-crosshair crosshair-a" aria-hidden="true">+</div>
+        <div class="scene-crosshair crosshair-b" aria-hidden="true">+</div>
+        <span class="axis-label axis-label-x" aria-hidden="true">X — LONGITUDE</span>
+        <span class="axis-label axis-label-y" aria-hidden="true">Y — LATITUDE</span>
       </div>
-      <div class="scene-wrap" id="scene-wrap">
-        <div class="scene-orbit orbit-one" aria-hidden="true"></div><div class="scene-orbit orbit-two" aria-hidden="true"></div>
-        <canvas id="scene" role="img" aria-label="A rotating three-dimensional globe with detailed continents, luminous coastlines, and a warm beacon. Drag horizontally to rotate it, or use the rotation buttons.">A blue globe with illuminated continents.</canvas>
-        <span class="scene-cross cross-one" aria-hidden="true">+</span><span class="scene-cross cross-two" aria-hidden="true">+</span>
-        <span class="scene-annotation annotation-top" aria-hidden="true"><i></i> ONE WORLD. INFINITE LAYERS.</span>
-        <span class="scene-annotation annotation-bottom" aria-hidden="true">A NEW PERSPECTIVE AWAITS <span>↗</span></span>
-        <div class="scene-controls"><span id="scene-hint">Drag to rotate</span><button data-rotate="-1" aria-label="Rotate globe left"><span class="rotate-symbol" aria-hidden="true">←</span></button><button id="motion-toggle" aria-label="Pause animation" aria-pressed="false"><span class="pause-symbol" aria-hidden="true"></span></button><button data-rotate="1" aria-label="Rotate globe right"><span class="rotate-symbol" aria-hidden="true">→</span></button></div>
-      </div>
-      <span class="world-latitude" aria-hidden="true">90° N — AN OPEN HORIZON — 90° S</span>
-      <div class="hero-footer"><span>A DOMAIN WITHOUT HORIZONS</span><a href="#the-name" aria-label="Scroll to the name"><span class="scroll-line" aria-hidden="true"></span> SCROLL TO EXPLORE</a><span class="hero-coordinate" aria-hidden="true">WL — 001</span></div>
+      <section class="intro" aria-labelledby="atlas-title">
+        <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> FIELD EXPERIMENT / 001</p>
+        <h1 id="atlas-title" aria-label="Make worlds.">Make<br> <span>worlds.</span></h1>
+        <p class="intro-copy">A little place that’s never existed.<br>Turn it over. Pull it apart. Start again.</p>
+        <button id="generate-world" class="generate-button"><span class="generate-icon" aria-hidden="true">↻</span><span>Make another world</span><span class="key-hint" aria-hidden="true">N</span></button>
+        <div class="world-identification" aria-live="polite" aria-atomic="true"><span class="micro-label">CURRENT DISCOVERY</span><span class="world-name" id="world-name">A place between places</span><span class="world-seed">SEED <span id="seed-value">042918</span> <span class="seed-separator">/</span> <span id="biome-label">ALPINE</span></span></div>
+      </section>
+      <div class="specimen-note" aria-hidden="true"><span class="specimen-circle">01</span><span>NOT FOUND ON<br>ANY MAP.</span><svg viewBox="0 0 90 24"><path d="M0 1h65l22 20M78 20h10v-9"/></svg></div>
+      <div class="scene-caption"><span class="caption-dot" aria-hidden="true"></span><span id="scene-hint">DRAG TO ORBIT · SCROLL TO ZOOM</span><span class="caption-divider" aria-hidden="true"></span><button id="reset-view">Reset view ↗</button></div>
+      <aside class="scene-readout" aria-label="Landscape information"><span>IMAGINARY LANDSCAPE</span><span id="terrain-readout">16,641 SURFACE POINTS</span><span>GENERATED, NOT GEOGRAPHIC.</span></aside>
+    </main>
+
+    <section class="control-deck" id="world-controls" aria-label="World controls">
+      <div class="biome-control"><span class="control-label">01 <span>CHOOSE A WORLD</span></span><div class="biome-buttons" role="group" aria-label="Terrain biome"><button class="biome-button active" data-biome="0" aria-pressed="true"><span class="biome-dot alpine-dot" aria-hidden="true"></span>Alpine</button><button class="biome-button" data-biome="1" aria-pressed="false"><span class="biome-dot dune-dot" aria-hidden="true"></span>Dune</button><button class="biome-button" data-biome="2" aria-pressed="false"><span class="biome-dot lunar-dot" aria-hidden="true"></span>Lunar</button></div></div>
+      <div class="layer-control"><label class="control-label" for="layer-depth">02 <span>PEEL BACK THE LAYERS</span><output id="depth-value" for="layer-depth">35%</output></label><div class="range-row"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m2 6 8-4 8 4-8 4ZM2 10l8 4 8-4M2 14l8 4 8-4"/></svg><input id="layer-depth" type="range" min="0" max="100" value="35" aria-label="Separate geological layers"><span class="range-plus" aria-hidden="true">+</span></div></div>
+      <div class="deck-actions"><button id="capture-world" class="icon-button" aria-label="Download a postcard of this world" title="Save a postcard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h4l2-2h3l2 2h3v14H5ZM9 12a3 3 0 1 0 6 0 3 3 0 1 0-6 0Z"/></svg></button><button id="motion-toggle" class="icon-button" aria-label="Pause motion" aria-pressed="false" title="Pause motion"><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6Z"/></svg></button><button id="field-notes" class="notes-button">Field notes <span aria-hidden="true">↗</span></button></div>
     </section>
-    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>ONE WORLD</span><i>✳</i><span>INFINITE LAYERS</span><i>✳</i><span>NEW PERSPECTIVES</span><i>✳</i><span>WORLDLAYER.SI</span><i>✳</i><span>ONE WORLD</span><i>✳</i><span>INFINITE LAYERS</span><i>✳</i><span>NEW PERSPECTIVES</span><i>✳</i><span>WORLDLAYER.SI</span><i>✳</i></div></div>
-    <section class="name-section section-shell" id="the-name" aria-labelledby="name-title">
-      <div class="section-heading"><span class="micro-label">01 / THE NAME</span><span class="section-note">An expansive name for an expansive idea.</span></div>
-      <div class="name-layout"><h2 id="name-title">The world.<br>With <em>another</em><br>dimension.</h2><div class="name-explanation"><p class="large-copy">A familiar world.<br>An entirely new perspective.</p><p>WorldLayer suggests depth, discovery, and a new way to experience what’s around us. A distinctive name with room for your ambition, whether your idea is digital, physical, or somewhere in between.</p><div class="word-equation"><span>World<small>THE POSSIBILITY</small></span><b aria-hidden="true">+</b><span>Layer<small>YOUR PERSPECTIVE</small></span></div></div></div>
-      <div class="domain-strip"><span class="domain-strip-name">worldlayer<span>.si</span></span><div class="domain-facts"><span><i aria-hidden="true">↗</i> A name with dimension</span><span><i aria-hidden="true">◎</i> Available to acquire</span><span><i aria-hidden="true">⌁</i> Yours to explore</span></div></div>
-    </section>
-    <section class="possibilities-section section-shell" id="possibilities" aria-labelledby="possibilities-title">
-      <div class="section-heading"><span class="micro-label">02 / THE POSSIBILITIES</span><span class="section-note">Where you take it is up to you.</span></div>
-      <div class="possibilities-heading"><h2 id="possibilities-title">A new layer.<br><em>Of everything.</em></h2><p>A domain with room to grow.<br>An idea without borders.</p></div>
-      <div class="possibility-cards">
-        <article class="possibility-card"><div class="card-top"><span>01</span><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="28"/><ellipse cx="40" cy="40" rx="13" ry="28"/><path d="M12 40h56M17 24h46M17 56h46"/></svg></div><h3>Spatial intelligence</h3><p>A home for maps, geographic data, or new tools that help us understand our world.</p><span class="card-category">SEE THE BIGGER PICTURE <span aria-hidden="true">↗</span></span></article>
-        <article class="possibility-card"><div class="card-top"><span>02</span><svg viewBox="0 0 80 80" aria-hidden="true"><path d="m40 10 29 16-29 16-29-16ZM11 39l29 16 29-16M11 52l29 16 29-16"/><path d="M40 42v26" stroke-dasharray="2 4"/></svg></div><h3>Immersive experiences</h3><p>A canvas for virtual worlds, augmented reality, or experiences beyond the screen.</p><span class="card-category">ADD ANOTHER DIMENSION <span aria-hidden="true">↗</span></span></article>
-        <article class="possibility-card"><div class="card-top"><span>03</span><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="11"/><circle cx="40" cy="40" r="29" stroke-dasharray="3 4"/><path d="M40 11v18M40 51v18M11 40h18M51 40h18"/><circle cx="40" cy="11" r="3"/><circle cx="69" cy="40" r="3"/><circle cx="40" cy="69" r="3"/><circle cx="11" cy="40" r="3"/></svg></div><h3>Connected worlds</h3><p>A platform for global communities, digital ecosystems, or something no one has imagined yet.</p><span class="card-category">MAKE NEW CONNECTIONS <span aria-hidden="true">↗</span></span></article>
-      </div>
-    </section>
-    <section class="acquire-section section-shell" aria-labelledby="acquire-title"><div class="acquire-glow" aria-hidden="true"></div><span class="micro-label"><span class="status-light" aria-hidden="true"></span> AVAILABLE FOR ACQUISITION</span><h2 id="acquire-title">Make your mark.<br>Build <em>your world.</em></h2><p>One domain. Unlimited possibility. Your next chapter.</p><button class="button button-primary" data-inquire>Let’s start a conversation <span aria-hidden="true">↗</span></button><span class="acquire-small">Inquire directly with the owner.</span></section>
-  </main>
-  <footer class="site-footer"><a class="footer-domain" href="#">worldlayer.si</a><span>The next layer is yours.</span><a class="contact-link" data-contact href="mailto:batcontact.help@gmail.com">Contact the owner <span aria-hidden="true">↗</span></a><span class="copyright">© <span data-year>2026</span> WorldLayer</span></footer>
-  <dialog id="inquiry-dialog" aria-labelledby="inquiry-title" aria-describedby="inquiry-description"><div class="dialog-inner"><button class="dialog-close" aria-label="Close inquiry">×</button><span class="micro-label">YOUR NEXT CHAPTER</span><h2 id="inquiry-title">Make it <em>yours.</em></h2><p id="inquiry-description">Interested in <strong>worldlayer.si</strong>? Start a conversation with the owner.</p><form id="inquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" placeholder="Alex Taylor" maxlength="100" required></label><label>Your email<input type="email" name="email" autocomplete="email" placeholder="alex@company.com" maxlength="254" required></label></div><label>Your offer in USD <span class="optional">(optional)</span><input type="number" name="offer" inputmode="decimal" min="1" step="0.01" placeholder="Open to a conversation"></label><label>A little about your idea <span class="optional">(optional)</span><textarea name="message" rows="3" maxlength="2000" placeholder="What do you have in mind?"></textarea></label><button class="button button-primary form-submit" type="submit">Continue to email <span aria-hidden="true">↗</span></button><p class="form-note">Opens your email app with a prepared inquiry. Nothing is sent or stored by this website.</p><div class="inquiry-result" id="inquiry-result" hidden><p id="inquiry-status" role="status" aria-live="polite"></p><div class="inquiry-alternatives"><button type="button" id="copy-inquiry">Copy inquiry <span aria-hidden="true">↗</span></button><a id="webmail-inquiry" target="_blank" rel="noopener noreferrer">Open Gmail <span aria-hidden="true">↗</span></a></div></div></form><a class="dialog-email" data-contact href="mailto:batcontact.help@gmail.com">batcontact.help@gmail.com</a></div></dialog>
+    <footer class="atlas-footer"><span>WORLDLAYER <span class="footer-year">/ <span data-year>2026</span></span></span><span class="footer-center">A CHANGE IN PERSPECTIVE.</span><a data-sister-link href="https://intellectgrid.si/" target="_blank" rel="noopener noreferrer">Another experiment <span aria-hidden="true">↗</span></a></footer>
+    <p id="app-status" class="app-status" role="status" aria-live="polite"></p>
+  </div>
+
+  <noscript><p class="no-script">The atlas comes to life with JavaScript. To inquire about worldlayer.si, email <a href="mailto:batcontact.help@gmail.com">batcontact.help@gmail.com</a>.</p></noscript>
+  <dialog id="notes-dialog" class="notes-dialog" aria-labelledby="notes-title"><div class="dialog-content"><button class="dialog-close" data-close aria-label="Close field notes">×</button><span class="eyebrow">WORLDLAYER / FIELD NOTES</span><h2 id="notes-title">Nothing here<br>is on a map.</h2><p>These little worlds are made from mathematics, a seed, and a healthy disregard for actual geography. Every ridge and valley is generated in your browser.</p><div class="notes-list"><div><span>01</span><p><strong>Change the climate.</strong> Alpine ridges, wind-shaped dunes, or a place a little further from home.</p></div><div><span>02</span><p><strong>Pull it apart.</strong> Use the layer slider to reveal the structure underneath. Drag the landscape to find another angle.</p></div><div><span>03</span><p><strong>Take it with you.</strong> The camera saves your world as a postcard. Make another whenever you like.</p></div></div><div class="shortcuts"><span>KEYBOARD</span><span><kbd>N</kbd> New world</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> Biome</span><span><kbd>←</kbd><kbd>→</kbd> Orbit focused terrain</span></div><p class="notes-small">An interactive experiment at worldlayer.si. The domain is available for acquisition.</p><button class="text-button" data-inquire>Inquire about the domain ↗</button></div></dialog>
+
+  <dialog id="inquiry-dialog" aria-labelledby="inquiry-title" aria-describedby="inquiry-description"><div class="dialog-content"><button class="dialog-close" data-close aria-label="Close inquiry">×</button><span class="eyebrow"><span class="status-dot" aria-hidden="true"></span> AN ADDRESS FOR YOUR NEXT WORLD</span><h2 id="inquiry-title">worldlayer<span>.si</span></h2><p id="inquiry-description">The experiment is ours. The name could be yours.<br>Contact the owner to discuss acquiring this domain.</p><form id="inquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" placeholder="Your name" maxlength="100" required></label><label>Your email<input type="email" name="email" autocomplete="email" placeholder="you@company.com" maxlength="254" required></label></div><label>Your offer in USD <span class="optional">(optional)</span><input type="number" name="offer" inputmode="decimal" min="1" step="0.01" placeholder="Let’s discuss"></label><label>A note to the owner <span class="optional">(optional)</span><textarea name="message" rows="3" maxlength="2000" placeholder="Tell us what you have in mind."></textarea></label><button class="submit-button" type="submit">Prepare an email <span aria-hidden="true">↗</span></button><p class="form-note">Prepare a draft here, then choose how to send it. This website doesn’t send or store your inquiry.</p><div class="inquiry-result" id="inquiry-result" hidden><p id="inquiry-status" role="status" aria-live="polite"></p><details class="draft-details"><summary>Review your draft</summary><pre id="draft-preview"></pre></details><div class="inquiry-alternatives"><a id="email-app-inquiry">Email app ↗</a><button type="button" id="copy-inquiry">Copy inquiry ↗</button><a id="webmail-inquiry" target="_blank" rel="noopener noreferrer">Open Gmail ↗</a></div></div></form><a class="dialog-email" data-contact href="mailto:batcontact.help@gmail.com">batcontact.help@gmail.com ↗</a></div></dialog>
 </body>
 </html>
